@@ -9,26 +9,43 @@
   <meta name="description"
     content="Hello there, I'm Sophia Williams – an intrepid explorer through the lens, on a relentless quest to capture the world's boundless wonders. Join me in unraveling the extraordinary through my lens as I embark on a visual journey like no other.">
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="./assets/logo.png" />
   <link rel="stylesheet" href="output.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'signika': ['Raleway', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
   <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <!-- Start - Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .nav-link { transition: color 0.2s ease; }
+    .nav-link:hover { color: #C25A0A !important; }
+    .nav-link:hover .nav-ul { background-color: #C25A0A !important; }
+  </style>
   <!-- End - Fonts -->
 </head>
 
 <body
   class="dark:bg-black bg-white h-screen text-black dark:text-white px-5 md:px-20 opacity-0 animate-fade-in transition duration-500">
   <!-- Navbar -->
-  <header class="flex w-full overflow-hidden pt-10 pb-1">
+  <header class="flex w-full overflow-hidden pt-5 pb-1">
     <nav id="nav" x-data="{ open: false }" role="navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center md:flex-no-wrap">
         <div class="mr-4 md:mr-8">
-          <a href="../index.html" class="text-2xl font-signika font-bold">Visual Ascent Media</a>
+          <a href="../index.html"><img src="./assets/logo.png" alt="Visual Ascent Media" style="height:36px;width:auto;object-fit:contain;" /></a>
         </div>
         <div class="ml-auto md:hidden flex items-center justify-start">
           <button onclick="menuToggle()" @click="open = !open"
@@ -53,14 +70,13 @@
           <ul id="ulMenu"
             class="flex flex-col duration-300 ease-out md:space-x-5 sm:transition-none mt-5 md:flex-row md:items-center md:ml-auto md:mt-0 md:pt-0 md:border-0">
             <li class="group transition duration-300">
-              <a href="../index.html" class="font-signika text-2xl">Portfolio
-                <span
-                  class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
+              <a href="../index.html" class="nav-link font-signika text-base">Portfolio
+                <span class="nav-ul hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="contact.html" class="font-signika text-2xl">Contact
-                <span class="hidden md:block h-0.5 bg-black dark:bg-white"></span>
+              <a href="contact.html" class="nav-link font-signika text-base">Contact
+                <span class="nav-ul hidden md:block h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
           </ul>
@@ -73,9 +89,9 @@
     <div class="grid grid-cols-2 gap-16">
       <section class="col-span-2 md:col-span-1">
         <div class="max-w-screen-md">
-          <h1 class="text-4xl pt-10 pb-8"><b>CONTACT</b></h1>
+          <h1 class="text-2xl pt-6 pb-4"><b>CONTACT</b></h1>
 
-          <form class="space-y-8" action="mailto:info@example.com">
+          <form class="space-y-8" action="mailto:henryst.martin05@gmail.com">
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                 email</label>
@@ -119,13 +135,15 @@
     <div class="max-w-screen-xl py-16 mx-auto">
       <div class="grid grid-cols-1 gap-8 text-center mx-auto">
         <div>
-          <p class="font-signika"><b>Visual Ascent Media</b></p>
-          <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+          <div class="flex justify-center mb-2">
+            <img src="./assets/logo.png" alt="Visual Ascent Media" style="height:32px;width:auto;object-fit:contain;" />
+          </div>
+          <p class="mt-4 text-xs text-gray-600 dark:text-gray-300">
             Calgary, AB Canada<br />(415) 208- 2116
           </p>
           <div class="flex mx-auto">
-            <div class="mx-auto space-x-6 flex mt-8 text-gray-600 dark:text-gray-300">
-              <a class="transition duration-300 hover:opacity-75" href="https://www.instagram.com/visualascent_media?igsh=djJ5cGMxOXVncHJv&utm_source=qr" target="new_blank"
+            <div class="mx-auto flex mt-6 gap-5 text-gray-600 dark:text-gray-300">
+              <a class="transition duration-300 hover:opacity-75 p-1" href="https://www.instagram.com/visualascent_media?igsh=djJ5cGMxOXVncHJv&utm_source=qr" target="new_blank"
                 rel="noreferrer">
                 <span class="sr-only"> Instagram </span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -134,7 +152,7 @@
                     clipRule="evenodd" />
                 </svg>
               </a>
-              <a class="transition duration-300 hover:opacity-75" href="https://www.linkedin.com/in/henry-s-881068369/" target="new_blank"
+              <a class="transition duration-300 hover:opacity-75 p-1" href="https://www.linkedin.com/in/henry-s-881068369/" target="new_blank"
                 rel="noreferrer">
                 <span class="sr-only">LinkedIn</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
